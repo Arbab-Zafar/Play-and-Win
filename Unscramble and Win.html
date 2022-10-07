@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unscramble and Win</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Roboto';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* Styling Nav and header */
+        nav {
+            background-color: rgb(165, 16, 165);
+            color: white;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 3px 30px 3px 0px;
+        }
+
+        #log {
+            position: relative;
+            left: 166px;
+        }
+
+        #sign {
+            position: relative;
+            left: 186px;
+        }
+
+        .game {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+        }
+
+        #ga {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+            text-decoration: underline;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling main */
+        h1 {
+            text-align: center;
+            color: red;
+            text-decoration: underline;
+            position: relative;
+            top: 16px;
+        }
+
+        #un {
+            text-decoration: underline;
+        }
+
+        .srambledword {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: blue;
+        }
+        .noofletters{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: rgb(62, 207, 120);
+        }
+        .input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <a href="index.html">
+                    <li id="logo">Guess and Win</li>
+                </a>
+                <a href="Guess and Win.html">
+                    <li class="game">Guess and Win</li>
+                </a>
+                <a href="Calculate and Win.html">
+                    <li class="game">Calculate and Win</li>
+                </a>
+                <a href="Unscramble and Win.html">
+                    <li class="game" id="un">Unscramble and Win</li>
+                </a>
+                <li id="log">Log-In</li>
+                <li id="sign">Sign-Up</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Unscramble and Win</h1>
+        <div class="srambledword">
+            <p id="scrambledword"></p>
+        </div>
+        <div class="input"></div>
+        <div class="noofletters">
+            <p id="noofletters"></p>
+        </div>
+    </main>
+    <script>
+        //Second MEthod --- I can understand it half
+        let scrambledword = document.querySelector("#scrambledword");
+        let noofletters = document.querySelector("#noofletters");
+        let inputdiv = document.querySelector(".input");
+        let a = "HELLO"
+        let s = 'ABCDEF';
+        // function to pick a random word 
+        let word = ["Hello", "Bottle", "Scissors", "Television", "Evaporation", "Condensation", "Chlorophyll", "Photosynthesis", "Electronics"],
+            wordtouse = word[Math.floor(Math.random() * word.length)];
+
+
+        //function to shuffle letters
+
+
+        function getRandomInt(n) {
+            return Math.floor(Math.random() * n);
+        }
+        function shuffle(s) {
+            let arr = s.split('');           // Convert String to array
+            let n = arr.length;              // Length of the array
+
+            for (let i = 0; i < n - 1; ++i) {
+                let j = getRandomInt(n);       // Get random of [0, n-1]
+
+                let temp = arr[i];             // Swap arr[i] and arr[j]
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            let input = document.createElement("input");
+            inputdiv.appendChild(input);
+
+
+            noofletters.innerText = `${arr.length}`;
+            s = arr.join('');                // Convert Array to string
+            return s;                        // Return shuffled string
+        }
+        word1 = shuffle(wordtouse);
+        scrambledword.innerText = `${word1}`;
+// First Method -- I cant' understand it well
+        // function shuffle(s) {
+        //     let arr = s.split('');           // Convert String to array
+
+        //     arr.sort(function () {
+        //         return 0.5 - Math.random();
+        //     });
+        //     s = arr.join('');                // Convert Array to string
+        //     return s;                        // Return shuffled string
+        // }
+        // a = shuffle(a);
+
+        // console.log(a);
+    </script>
+</body>
+
+</html>

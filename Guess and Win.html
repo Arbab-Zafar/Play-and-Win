@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess and Win - GAME</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Roboto';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* Styling Nav and header */
+        nav {
+            background-color: rgb(165, 16, 165);
+            color: white;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 3px 30px 3px 0px;
+        }
+
+        #log {
+            position: relative;
+            left: 166px;
+        }
+
+        #sign {
+            position: relative;
+            left: 186px;
+        }
+
+        #gam {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+            text-decoration: underline;
+        }
+
+        .game {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling main */
+        .button {
+            display: inline-block;
+            position: relative;
+            left: 613px;
+            top: 28px;
+        }
+
+        .btn {
+            padding: 8px 22px;
+            background: linear-gradient(rgb(226, 84, 226), rgb(92, 231, 92), rgb(237, 237, 72), rgb(241, 85, 85), rgb(78, 78, 235));
+            border: 2px solid grey;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            padding: 9px 23px;
+            font-size: 15px;
+        }
+
+        .gamearea {
+            width: 69vw;
+            height: 100%;
+            display: flex;
+            position: relative;
+            top: 60px;
+        }
+
+        .right-side-area {
+            width: 29vw;
+            height: 100%;
+            display: flex;
+            position: relative;
+            top: -44px;
+            float: right;
+        }
+
+        #p_1 {
+            margin-left: 30px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <a href="index.html">
+                    <li id="logo">Guess and Win</li>
+                </a>
+                <a href="Guess and Win.html">
+                    <li class="game" id="gam">Guess and Win</li>
+                </a>
+                <a href="Calculate and Win.html">
+                    <li class="game">Calculate and Win</li>
+                </a>
+                <a href="Unscramble and Win.html">
+                    <li class="game">Unscramble and Win</li>
+                </a>
+                <li id="log">Log-In</li>
+                <li id="sign">Sign-Up</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="maincontainer">
+            <div class="button">
+                <button class="btn">PLAY</button>
+            </div>
+            <div class="gamearea">
+                <div>
+                    <p id="p">The game will generate a RANDOM NUMBER.You have to GUESS the number in the given CHANCES
+                        given
+                        according to the AMOUNT paid.If you GUESS the NUMBER in the given CHANCES then you will WIN and
+                        the
+                        WINNING AMOUNT will be GIVEN to YOU.If "YOU ARE CLOSE" displays then the the RANDOM NUMBER is
+                        within
+                        the RANGE of 3. </p>
+                </div>
+                <p id="p1"></p>
+                <p id="p2"></p>
+                <p id="p3"></p>
+                <p id="p4"></p>
+                <p id="p5"></p>
+                <p id="p6"></p>
+                <p id="p7"></p>
+                <p id="p8"></p>
+                <p id="p9"></p>
+                <p id="p10"></p>
+                <p id="p11"></p>
+                <p id="p12"></p>
+                <p id="p13"></p>
+                <p id="p14"></p>
+                <p id="p15"></p>
+            </div>
+            <div class="right-side-area">
+                <p id="p_1">Press CTRL + SHIFT + I</p>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let btn = document.querySelector(".btn");
+    btn.onclick = function () {
+        let a = Math.random() * 100
+        a = Number.parseInt(a);
+        let input;
+        input = Number.parseInt(input);
+        let c = 4;
+        let d = 5;
+        let e = 6;
+        let f = 0;
+        let z = 9;
+        let id = Math.floor(Math.random() * 10000);;
+        let cpu = Math.floor(Math.random() * 3);
+        let cpu1 = ["6", "5", "4"][cpu];
+        let cpu2 = Math.floor(Math.random() * 2);
+        let cpu3 = ["5", "4"][cpu2];
+        let score = 100;
+        let nav = document.querySelector(".nav");
+        let ul = document.querySelector(".ul");
+        let maincontainer = document.querySelector(".maincontainer");
+        let button = document.querySelector(".button");
+        let gamearea = document.querySelector(".gamearea");
+        let rsa = document.querySelector(".right-side-area");
+        let p = document.querySelector("#p");
+        let p1 = document.querySelector("#p1");
+        let p2 = document.querySelector("#p2");
+        let p3 = document.querySelector("#p3");
+        let p4 = document.querySelector("#p4");
+        let p5 = document.querySelector("#p5");
+        let p6 = document.querySelector("#p6");
+        let p7 = document.querySelector("#p7");
+        let p8 = document.querySelector("#p8");
+        let p9 = document.querySelector("#p9");
+        let p10 = document.querySelector("#p10");
+        let p11 = document.querySelector("#p11");
+        let p12 = document.querySelector("#p12");
+        let p13 = document.querySelector("#p13");
+        let p14 = document.querySelector("#p14");
+        let p15 = document.querySelector("#p15");
+
+        let p_1 = document.querySelector("#p_1");
+        p.style.fontSize = "25px";
+        p.style.marginLeft = "23vw";
+        console.log("WELCOME to GUESS AND WIN")
+        console.log("The PRICE, CHANCES and WINNING amount of the game are as follows:-\n");
+        console.log("1->Give 1 RUPEES and get 4, 5 or 6 CHANCES. If won - 2 RUPEES!");
+        console.log("2->Give 2 RUPEES and get 4, 5 or 6 CHANCES. If won - 3 RUPEES!");
+        console.log("3->Give 3 RUPEES and get 4, 5 or 6 CHANCES. If won - 4 RUPEES!");
+        console.log("4->Give 4 RUPEES and get 5 CHANCES. If won - 6 RUPEES!");
+        console.log("5->Give 5 RUPEES and get 4 or 5 CHANCES. If won - 8 RUPEES!");
+        console.log("6->Give 6 RUPEES and get 4 or 5 CHANCES. If won - 10 RUPEES!");
+        console.log("7->Give 7 RUPEES and get 4 or 5 CHANCES. If won - 11 RUPEES!");
+        console.log("8->Give 8 RUPEES and get 4 or 5 CHANCES. If won - 12 RUPEES!");
+        console.log("9->Give 9 RUPEES and get 4 or 5 CHANCES. If won - 14 RUPEES!");
+        console.log("10->Give 10 RUPEES and get 4 or 5 CHANCES. If won - 17 RUPEES!");
+        console.log("HOW TO PLAY GAME :-\n");
+        console.log(`The game will generate a RANDOM NUMBER.\n\nYou have to GUESS the number in the given CHANCES given according to the AMOUNT paid.\n\nIf you GUESS the NUMBER in the given CHANCES then you will WIN and the WINNING AMOUNT will be GIVEN to YOU.\n\nIf "YOU ARE CLOSE" displays then the the RANDOM NUMBER is within the RANGE of 3.\n`);
+        z = prompt("Enter the password:");
+        function lastchance(a, input, c, d, e) {
+            if (a - input == 3 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+            else if (a - input == 2 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+            else if (a - input == 1 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+
+            else if (input - a == 3 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+            else if (input - a == 2 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+            else if (input - a == 1 && c == 0 || d == 0 || e == 0) {
+                console.log("You are CLOSE")
+                console.log("This is the last chance")
+            }
+            else if (input < a && c == 0 || d == 0 || e == 0) {
+                console.log("Enter a BIGGER number!")
+                console.log("This is the last chance")
+            }
+            else if (input > a && c == 0 || d == 0 || e == 0) {
+                console.log("Enter a SMALLER number!")
+                console.log("This is the last chance")
+            }
+
+        }
+        function logicforonetwo(cpu1, c, d, e, f, input, a, score, win) {
+            console.log(`Game ID = #${id}`);
+            console.log(`You have got ${cpu1} chances`);
+            if (cpu1 == 4) {
+                while (c != f && input != a) {
+                    c = c - 1;
+                    input = prompt('Enter a number between 0 and 100: ');
+                    score = score - 1
+                    console.log(` You have entered ${input}`);
+                    if (input == a) {
+                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`);
+                        console.log(`Your score is ${100 - (100 - score)}`);
+                        console.log(`Hurray! You have won ${win} RUPEES`);
+                    }
+                    else if (c == 0) {
+                        console.log("Oops! Your chances are now over");
+                        console.log("You LOSE!");
+                        console.log(`The number was ${a}`)
+                    }
+                    else if (a - input == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input - a == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 1) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input < a) {
+                        console.log("Enter a BIGGER number!")
+                    }
+                    else if (input > a) {
+                        console.log("Enter a SMALLER number!")
+                    }
+
+
+                    else {
+                        console.log("Enter number between 1 to 100")
+                    }
+                }
+            }
+            else if (cpu1 == 5) {
+                while (d != f && input != a) {
+                    d = d - 1;
+                    score = score - 1
+                    input = prompt('Enter a number between 0 and 100: ');
+                    console.log(` You have entered ${input}`);
+                    if (input == a) {
+                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
+                        console.log(`Your score is ${100 - (100 - score)}`)
+                        console.log("Hurray! You have won 2 RUPEES")
+                    }
+                    else if (d == 0) {
+                        console.log("Oops! Your chances are now over");
+                        console.log("You LOSE!");
+                        console.log(`The number was ${a}`)
+                    }
+
+                    else if (a - input == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 2) {
+                        console.log("You are CLOSE");
+                    }
+                    else if (a - input == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input - a == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input < a) {
+                        console.log("Enter a BIGGER number!")
+                    }
+                    else if (input > a) {
+                        console.log("Enter a SMALLER number!")
+                    }
+                    else {
+                        console.log("Enter number between 1 to 100")
+                    }
+                }
+            }
+            else {
+                while (e != f && input != a) {
+                    e = e - 1;
+                    score = score - 1
+                    input = prompt('Enter a number between 0 and 100: ');
+                    console.log(` You have entered ${input}`);
+                    if (input == a) {
+                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
+                        console.log(`Your score is ${100 - (100 - score)}`)
+                        console.log("Hurray! You have won 2 RUPEES")
+                    }
+                    else if (e == 0) {
+                        console.log("Oops! Your chances are now over");
+                        console.log("You LOSE!");
+                        console.log(`The number was ${a}`)
+                    }
+
+                    else if (a - input == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input - a == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input < a) {
+                        console.log("Enter a BIGGER number!")
+                    }
+                    else if (input > a) {
+                        console.log("Enter a SMALLER number!");
+                    }
+                    else {
+                        console.log("Enter number between 1 to 100");
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        function logicforfive(d, f, input, a, score, win) {
+            console.log(`Game ID = #${id}`);
+            console.log(`You have got ${cpu1} chances`);
+
+            while (d != f && input != a) {
+                d = d - 1;
+                score = score - 1
+                input = prompt('Enter a number between 0 and 100: ');
+                console.log(` You have entered ${input}`);
+                if (input == a) {
+                    console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
+                    console.log(`Your score is ${100 - (100 - score)}`)
+                    console.log("Hurray! You have won 2 RUPEES")
+                }
+                else if (d == 0) {
+                    console.log("Oops! Your chances are now over");
+                    console.log("You LOSE!");
+                    console.log(`The number was ${a}`)
+                }
+
+                else if (a - input == 3) {
+                    console.log("You are CLOSE")
+                }
+                else if (a - input == 2) {
+                    console.log("You are CLOSE");
+                }
+                else if (a - input == 1) {
+                    console.log("You are CLOSE")
+                }
+
+                else if (input - a == 3) {
+                    console.log("You are CLOSE")
+                }
+                else if (input - a == 2) {
+                    console.log("You are CLOSE")
+                }
+                else if (input - a == 1) {
+                    console.log("You are CLOSE")
+                }
+
+                else if (input < a) {
+                    console.log("Enter a BIGGER number!")
+                }
+                else if (input > a) {
+                    console.log("Enter a SMALLER number!")
+                }
+                else {
+                    console.log("Enter number between 1 to 100")
+                }
+            }
+
+        }
+
+
+
+        function logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, win) {
+            console.log(`Game ID = #${id}`);
+            console.log(`You have got ${cpu3} chances`);
+
+            if (cpu3 == 4) {
+                while (c != f && input != a) {
+                    c = c - 1;
+                    score = score - 1
+                    input = prompt('Enter a number between 0 and 100: ');
+                    console.log(` You have entered ${input}`);
+                    if (input == a) {
+                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`);
+                        console.log(`Your score is ${100 - (100 - score)}`);
+                        console.log(`Hurray! You have won ${win} RUPEES`);
+                    }
+                    else if (c == 0) {
+                        console.log("Oops! Your chances are now over");
+                        console.log("You LOSE!");
+                        console.log(`The number was ${a}`)
+                    }
+                    else if (a - input == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input - a == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 1) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input < a) {
+                        console.log("Enter a BIGGER number!")
+                    }
+                    else if (input > a) {
+                        console.log("Enter a SMALLER number!")
+                    }
+
+                    else {
+                        console.log("Enter number between 1 to 100")
+                    }
+                }
+            }
+            else {
+                while (d != f && input != a) {
+                    d = d - 1;
+                    score = score - 1
+                    input = prompt('Enter a number between 0 and 100: ');
+                    console.log(` You have entered ${input}`);
+                    if (input == a) {
+                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
+                        console.log(`Your score is ${100 - (100 - score)}`)
+                        console.log("Hurray! You have won 2 RUPEES")
+                    }
+                    else if (d == 0) {
+                        console.log("Oops! Your chances are now over");
+                        console.log("You LOSE!");
+                        console.log(`The number was ${a}`)
+                    }
+
+                    else if (a - input == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (a - input == 2) {
+                        console.log("You are CLOSE");
+                    }
+                    else if (a - input == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input - a == 3) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 2) {
+                        console.log("You are CLOSE")
+                    }
+                    else if (input - a == 1) {
+                        console.log("You are CLOSE")
+                    }
+
+                    else if (input < a) {
+                        console.log("Enter a BIGGER number!")
+                    }
+                    else if (input > a) {
+                        console.log("Enter a SMALLER number!")
+                    }
+                    else {
+                        console.log("Enter number between 1 to 100")
+                    }
+                }
+            }
+
+
+        }
+
+
+
+        if (z == 9) {
+            console.log("THE GAME HAS STARTED! GOOD LUCK😊\n\n");
+            b = prompt("Enter amount(1, 2, 3, 4, 5, 6, 7, 8, 9 or 10) to play!");
+            //If amount = 1 then this statement---
+            if (b == 1) {
+                logicforonetwo(cpu1, c, d, e, f, input, a, score, 2)
+            }
+            if (b == 2) {
+                logicforonetwo(cpu1, c, d, e, f, input, a, score, 3)
+            }
+            if (b == 3) {
+                logicforonetwo(cpu1, c, d, e, f, input, a, score, 4)
+            }
+            if (b == 4) {
+                logicforonetwo(d, f, input, a, score, 6)
+            }
+            if (b == 5) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 8)
+            }
+            if (b == 6) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 10)
+            }
+            if (b == 7) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 11)
+            }
+            if (b == 8) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 12)
+            }
+            if (b == 9) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 14)
+            }
+            if (b == 10) {
+                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 17)
+            }
+
+        }
+
+    }
+
+</script>
+
+</html>
