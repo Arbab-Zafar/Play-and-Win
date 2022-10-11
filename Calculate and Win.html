@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Calculate and Win</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
 
@@ -13,23 +13,37 @@
             font-family: 'Poppins', sans-serif, 'Roboto';
             margin: 0px;
             padding: 0px;
+            background-image: linear-gradient(rgba(208, 197, 197, 0.5), rgba(255, 253, 253, 0.5)), url(https://wallpaperaccess.com/full/187170.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+            margin-top: 0px;
+            height: 563px;
         }
 
         /* Styling Nav and header */
         nav {
-            background-color: rgb(165, 16, 165);
-            color: white;
+            /* background-color: rgb(201, 103, 237); */
+            /* border-bottom: 1.5px solid rgb(21, 20, 20); */
+            box-shadow: 5px 4px 3px #2c2a2a;;
         }
+        
+
 
         ul {
             display: flex;
             align-items: center;
             list-style: none;
+            margin-bottom: 0px;
         }
 
-        nav ul li {
+
+
+            nav ul li {
             margin: 3px 30px 3px 0px;
+            color: rgb(0, 0, 0);
         }
+        
 
         #log {
             position: relative;
@@ -176,7 +190,8 @@
             font-size: 23px;
             color: #22c722;
         }
-        #ca{
+
+        #ca {
             text-decoration: underline;
         }
     </style>
@@ -187,7 +202,7 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                <li id="logo">Guess and Win</li>
+                    <li id="logo">Play and Win</li>
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game">Guess and Win</li>
