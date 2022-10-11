@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess and Win</title>
+    <title>Play and Win</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
 
@@ -13,22 +13,36 @@
             font-family: 'Poppins', sans-serif, 'Roboto';
             margin: 0px;
             padding: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(https://wallpaperaccess.com/full/187170.jpg);
+            background-repeat: no-repeat;
+            background-size: fill;
+            opacity: 1;
+            margin-top: 0px;
+            /* height: 1280px;
+            width: 1390pxs; */
         }
+
+
+
 
         /* Styling Nav and header */
         nav {
-            background-color: rgb(165, 16, 165);
-            color: white;
+            /* background-color: rgb(201, 103, 237); */
+            /* border-bottom: 1.5px solid rgb(21, 20, 20); */
+            box-shadow: 5px 4px 3px #2c2a2a;
+            ;
         }
 
         ul {
             display: flex;
             align-items: center;
             list-style: none;
+            margin-bottom: 0px;
         }
 
         nav ul li {
             margin: 3px 30px 3px 0px;
+            color: rgb(0, 0, 0);
         }
 
         #log {
@@ -50,6 +64,7 @@
         #logo {
             font-size: 30px;
             font-weight: bold;
+            text-decoration: underline;
         }
 
         a {
@@ -58,19 +73,85 @@
         }
 
         /* Styling main */
-        h2{
+        h1 {
             text-align: center;
             color: red;
+            text-decoration: underline;
+            margin-bottom: 8vh;
+            margin-top: 0px;
+            padding-top: 22px;
         }
-        big{
-            color: green;
-            margin-left: 15px;
+
+        h2 {
+            color: rgb(50, 50, 238);
         }
-        #p{
+
+        h3 {
+            color: rgb(255 16 82);
+        }
+
+
+        p {
+            color: black;
+        }
+
+        u {
+            color: black;
+        }
+
+        #p {
             margin-left: 20px;
         }
-        #pa{
+
+        #pa {
             margin-left: 20px;
+        }
+
+        .first {
+            width: 32vw;
+            margin-right: 1vw;
+            margin-left: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: auto;
+        }
+
+        .second {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 650px;
+        }
+
+        .third {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 600px;
+        }
+
+        .maincontainer2 {
+            display: flex;
+        }
+
+        .footer {
+            position: relative;
+            left: 420px;
+            bottom: 300px;
+            width: 65vw;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #copyright {
+            color: black;
         }
     </style>
 </head>
@@ -80,7 +161,7 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                <li id="logo">Guess and Win</li>
+                    <li id="logo">PLay and Win</li>
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game">Guess and Win</li>
@@ -98,18 +179,69 @@
     </header>
     <main>
         <div class="maincontainer">
-            <div class="para">
-                <h2>WELCOME to GUESS AND WIN</h2>
-                <p id="p"><big>HOW TO PLAY GAME :-</big><br><br>
-                    The game will generate a RANDOM NUMBER.You have to GUESS the number in the given CHANCES given
-                    according to the AMOUNT paid.If you GUESS the NUMBER in the given CHANCES then you will WIN and the
-                    WINNING AMOUNT will be GIVEN to YOU.If "YOU ARE CLOSE" displays then the the RANDOM NUMBER is within
-                    the RANGE of 3</p>
-                <p id="pa"><big>The Price, CHANCES and WINNING amount of the game are as follows:-</big><br><br>
-                1->Give 1 RUPEES and get 4, 5 or 6 CHANCES. If won - 2 RUPEES!<br>
-                2->Give 2 RUPEES and get 4, 5 or 6 CHANCES. If won - 4 RUPEES!<br>
-                3->Give 5 RUPEES and get 4 or 5 CHANCES. If won - 10 RUPEES!<br>
+            <h1>Welcome to Play and Win</h1>
+            <div class="maincontainer2">
+                <div class="first">
+                    <h2>Guess and Win</h2>
+                    <h3> About the game :-</h3>
+                    <p>To play this game press <kbd>CTRL</kbd><kbd>+</kbd><kbd>SHIFT</kbd><kbd>+</kbd><Kbd>I</Kbd>
+                        The game will generate a random number.<br><br>You have to guess the number in the given chances
+                        given according to the amount paid.<br><br>If you guess the number in the given chances then you
+                        will
+                        win.<br><br><u>Note:</u>If "You are close" displays then the random number is within the range
+                        of 3
+                    </p>
+                    <h3>The price, chances and winning amount:-</h3>
+                    <p>
+                        Give 1 rupee and get 4, 5 or 6 chances. If won - 2 rupees!<br><br>
+                        Give 2 rupees and get 4, 5 or 6 chances. If won - 3 rupees!<br><br>
+                        Give 3 rupees and get 4, 5 or 6 chances. If won - 4 rupees!<br><br>
+                        Give 4 rupees and get 5 chances. If won - 6 rupees!<br><br>
+                        Give 5 rupees and get 4 or 5 chances. If won - 8 rupees!<br><br>
+                        Give 6 rupees and get 4 or 5 chances. If won - 10 rupees!<br><br>
+                        Give 7 rupees and get 4 or 5 chances. If won - 11 rupees!<br><br>
+                        Give 8 rupees and get 4 or 5 chances. If won - 12 rupees!<br><br>
+                        Give 9 rupees and get 4 or 5 chances. If won - 14 rupees!<br><br>
+                        Give 10 rupees and get 4 or 5 chances. If won - 17 rupees!<br><br>
+                    </p>
+                </div>
+
                 </p>
+                <div class="second">
+                    <h2>Calculate and Win</h2>
+                    <h3> About the game :-</h3>
+                    <p>To play this game you have to give 5 rupees. <br><br>
+                        The game will give you some random calculations to do!<br><br>
+                        The game has three levels. If you pass them then you will win.<br><br><u>Note</u>: In this game
+                        remainder
+                        and decimals are not counted!
+                    </p>
+                    <h3>The time and winning amount:-</h3>
+                    <p>
+                        If you pass the first level and got out then you will win 1 rupee!<br><br>
+                        If you pass the second level and got out then you will win 7 rupees!<br><br>
+                        If you pass all the three levels then you will win 10 rupees!
+                    </p>
+                </div>
+                <div class="third">
+                    <h2>Unscramble and Win</h2>
+                    <h3> About the game :-</h3>
+                    <p>
+                        To play this game you have to give 5 rupees. <br><br>
+                        The game will generate an scrambled meaningful word!<br><br>
+                        If you guessed the word then you will win.<br><br><u>Note:</u>You must have to write the first
+                        letter of the word in capital.
+                    </p>
+                    <h3>The time, chances and winning amount:-</h3>
+                    <p>
+                        You will get 25 seconds to guess the word.<br><br>
+                        You will 3 chances to guess the word!<br><br>
+                        If you win then you will get 8 rupees!<br><br>
+                    </p>
+                </div>
+            </div>
+            <div class="footer">
+                <p id="copyright">Copyright &copy; Play and Win</p>
             </div>
         </div>
     </main>
