@@ -13,23 +13,38 @@
             font-family: 'Poppins', sans-serif, 'Roboto';
             margin: 0px;
             padding: 0px;
+            background-image: linear-gradient(rgba(208, 197, 197, 0.5), rgba(255, 253, 253, 0.5)), url(https://wallpaperaccess.com/full/187170.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+            margin-top: 0px;
+            height: 565px;
         }
 
         /* Styling Nav and header */
         nav {
-            background-color: rgb(165, 16, 165);
-            color: white;
+            /* background-color: rgb(201, 103, 237); */
+            /* border-bottom: 1.5px solid rgb(21, 20, 20); */
+            box-shadow: 5px 4px 3px #2c2a2a;
+            ;
         }
+
+
 
         ul {
             display: flex;
             align-items: center;
             list-style: none;
+            margin-bottom: 0px;
         }
+
+
 
         nav ul li {
             margin: 3px 30px 3px 0px;
+            color: rgb(0, 0, 0);
         }
+
 
         #log {
             position: relative;
@@ -101,9 +116,90 @@
             float: right;
         }
 
+        h1 {
+            text-align: center;
+            color: red;
+            text-decoration: underline;
+            position: relative;
+            top: 16px;
+        }
+
         #p_1 {
             margin-left: 30px;
             color: blue;
+            direction: right;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .information {
+            float: right;
+            bottom: 200px;
+            position: relative;
+            padding: 1px;
+            width: 250px;
+            font-size: 20px;
+        }
+
+        .entersent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .infodiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inputdiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .extrainfo {
+            position: relative;
+            bottom: 160px;
+            right: -67px;
+            display: inline-block;
+        }
+
+        input{
+            width: 242px;
+            height: 27px;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding-left: 17px;
+        }
+
+        .gg{
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+
+        #entersent {
+            color: orange;
+            font-size: 24px;
+        }
+
+        P {
+            color: rgb(246 0 76);
+        }
+
+        #info2 {
+            text-align: center;
+        }
+
+        .radios {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -113,7 +209,7 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                    <li id="logo">Guess and Win</li>
+                    <li id="logo">Play and Win</li>
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game" id="gam">Guess and Win</li>
@@ -130,47 +226,28 @@
         </nav>
     </header>
     <main>
-        <div class="maincontainer">
-            <div class="button">
-                <button class="btn">PLAY</button>
+        <h1>Welcome to Guess and Win</h1>
+        <div class="main">
+            <div class="entersent">
+                <p id="entersent">Enter the password:</p>
             </div>
-            <div class="gamearea">
-                <div>
-                    <p id="p">The game will generate a RANDOM NUMBER.You have to GUESS the number in the given CHANCES
-                        given
-                        according to the AMOUNT paid.If you GUESS the NUMBER in the given CHANCES then you will WIN and
-                        the
-                        WINNING AMOUNT will be GIVEN to YOU.If "YOU ARE CLOSE" displays then the the RANDOM NUMBER is
-                        within
-                        the RANGE of 3. </p>
-                </div>
-                <p id="p1"></p>
-                <p id="p2"></p>
-                <p id="p3"></p>
-                <p id="p4"></p>
-                <p id="p5"></p>
-                <p id="p6"></p>
-                <p id="p7"></p>
-                <p id="p8"></p>
-                <p id="p9"></p>
-                <p id="p10"></p>
-                <p id="p11"></p>
-                <p id="p12"></p>
-                <p id="p13"></p>
-                <p id="p14"></p>
-                <p id="p15"></p>
+            <div class="inputdiv">
+                <input type="number" class="input">
             </div>
-            <div class="right-side-area">
-                <p id="p_1">Press CTRL + SHIFT + I</p>
+            <div class="infodiv">
+                <p id="info1"></p>
             </div>
+            <p id="info2"></p>
+            <div class="information">
+            </div>
+            <div class="extrainfo"></div>
         </div>
     </main>
 </body>
 <script>
-    let btn = document.querySelector(".btn");
-    btn.onclick = function () {
         let a = Math.random() * 100
         a = Number.parseInt(a);
+        console.log(a)
         let input;
         input = Number.parseInt(input);
         let c = 4;
@@ -183,436 +260,328 @@
         let cpu1 = ["6", "5", "4"][cpu];
         let cpu2 = Math.floor(Math.random() * 2);
         let cpu3 = ["5", "4"][cpu2];
+        let cpu5 = 5;
         let score = 100;
         let nav = document.querySelector(".nav");
         let ul = document.querySelector(".ul");
-        let maincontainer = document.querySelector(".maincontainer");
-        let button = document.querySelector(".button");
-        let gamearea = document.querySelector(".gamearea");
-        let rsa = document.querySelector(".right-side-area");
-        let p = document.querySelector("#p");
-        let p1 = document.querySelector("#p1");
-        let p2 = document.querySelector("#p2");
-        let p3 = document.querySelector("#p3");
-        let p4 = document.querySelector("#p4");
-        let p5 = document.querySelector("#p5");
-        let p6 = document.querySelector("#p6");
-        let p7 = document.querySelector("#p7");
-        let p8 = document.querySelector("#p8");
-        let p9 = document.querySelector("#p9");
-        let p10 = document.querySelector("#p10");
-        let p11 = document.querySelector("#p11");
-        let p12 = document.querySelector("#p12");
-        let p13 = document.querySelector("#p13");
-        let p14 = document.querySelector("#p14");
-        let p15 = document.querySelector("#p15");
-
-        let p_1 = document.querySelector("#p_1");
-        p.style.fontSize = "25px";
-        p.style.marginLeft = "23vw";
-        console.log("WELCOME to GUESS AND WIN")
-        console.log("The PRICE, CHANCES and WINNING amount of the game are as follows:-\n");
-        console.log("1->Give 1 RUPEES and get 4, 5 or 6 CHANCES. If won - 2 RUPEES!");
-        console.log("2->Give 2 RUPEES and get 4, 5 or 6 CHANCES. If won - 3 RUPEES!");
-        console.log("3->Give 3 RUPEES and get 4, 5 or 6 CHANCES. If won - 4 RUPEES!");
-        console.log("4->Give 4 RUPEES and get 5 CHANCES. If won - 6 RUPEES!");
-        console.log("5->Give 5 RUPEES and get 4 or 5 CHANCES. If won - 8 RUPEES!");
-        console.log("6->Give 6 RUPEES and get 4 or 5 CHANCES. If won - 10 RUPEES!");
-        console.log("7->Give 7 RUPEES and get 4 or 5 CHANCES. If won - 11 RUPEES!");
-        console.log("8->Give 8 RUPEES and get 4 or 5 CHANCES. If won - 12 RUPEES!");
-        console.log("9->Give 9 RUPEES and get 4 or 5 CHANCES. If won - 14 RUPEES!");
-        console.log("10->Give 10 RUPEES and get 4 or 5 CHANCES. If won - 17 RUPEES!");
-        console.log("HOW TO PLAY GAME :-\n");
-        console.log(`The game will generate a RANDOM NUMBER.\n\nYou have to GUESS the number in the given CHANCES given according to the AMOUNT paid.\n\nIf you GUESS the NUMBER in the given CHANCES then you will WIN and the WINNING AMOUNT will be GIVEN to YOU.\n\nIf "YOU ARE CLOSE" displays then the the RANDOM NUMBER is within the RANGE of 3.\n`);
-        z = prompt("Enter the password:");
-        function lastchance(a, input, c, d, e) {
-            if (a - input == 3 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-            else if (a - input == 2 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-            else if (a - input == 1 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-
-            else if (input - a == 3 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-            else if (input - a == 2 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-            else if (input - a == 1 && c == 0 || d == 0 || e == 0) {
-                console.log("You are CLOSE")
-                console.log("This is the last chance")
-            }
-            else if (input < a && c == 0 || d == 0 || e == 0) {
-                console.log("Enter a BIGGER number!")
-                console.log("This is the last chance")
-            }
-            else if (input > a && c == 0 || d == 0 || e == 0) {
-                console.log("Enter a SMALLER number!")
-                console.log("This is the last chance")
-            }
-
-        }
-        function logicforonetwo(cpu1, c, d, e, f, input, a, score, win) {
-            console.log(`Game ID = #${id}`);
-            console.log(`You have got ${cpu1} chances`);
-            if (cpu1 == 4) {
-                while (c != f && input != a) {
+        let maincontainer = document.querySelector(".main");
+        let inputdiv = document.querySelector(".inputdiv");
+        let infodiv = document.querySelector(".infodiv");
+        let input1 = document.querySelector(".input");
+        let info1 = document.querySelector("#info1");
+        let info2 = document.querySelector("#info2");
+        let info3 = document.querySelector("#info3");
+        let info4 = document.querySelector("#info4");
+        let info5 = document.querySelector("#info5");
+        let entersent = document.querySelector("#entersent");
+        let information = document.querySelector(".information");
+        let extrainfo = document.querySelector(".extrainfo");
+        input1.focus();
+        console.log(cpu1);
+        function cpu14func(cpu1, input2, win) {
+            // Removing input2 
+            input2.style.display = "none";
+            // Creating new input for number 
+            let input3 = document.createElement("input");
+            inputdiv.appendChild(input3);
+            input3.focus();
+            entersent.innerText = "Enter a no. between 0 to 100:"
+            input3.addEventListener("keypress", (event) => {
+                if (event.keyCode === 13) {
                     c = c - 1;
-                    input = prompt('Enter a number between 0 and 100: ');
                     score = score - 1
-                    console.log(` You have entered ${input}`);
-                    if (input == a) {
-                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`);
-                        console.log(`Your score is ${100 - (100 - score)}`);
-                        console.log(`Hurray! You have won ${win} RUPEES`);
-                    }
-                    else if (c == 0) {
-                        console.log("Oops! Your chances are now over");
-                        console.log("You LOSE!");
-                        console.log(`The number was ${a}`)
-                    }
-                    else if (a - input == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 1) {
-                        console.log("You are CLOSE")
-                    }
-
-                    else if (input - a == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 1) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input < a) {
-                        console.log("Enter a BIGGER number!")
-                    }
-                    else if (input > a) {
-                        console.log("Enter a SMALLER number!")
-                    }
+                    event.preventDefault();
+                    if (input3.value >= 0) {
+                        let p20 = document.createElement("p")
+                        information.appendChild(p20);
+                        p20.style.fontSize = "18px";
+                        p20.innerText = `${input3.value}`
 
 
-                    else {
-                        console.log("Enter number between 1 to 100")
+                        if (input3.value == a) {
+                            info1.innerText = "Congratulations!";
+                            clearTimeout();
+                            input3.style.display = "none"
+                            let p21 = document.createElement("p")
+                            information.appendChild(p21);
+                            p21.innerText = "Congratulations!"
+                            p21.style.fontSize = "18px";
+                            info2.innerText = `You have won ${win} rupees`
+
+                        }
+                        else if (c == 0) {
+                            info1.innerText = "Chances are over!"
+                            info1.innerText = "Chances are over!"
+                            input3.style.display = "none"
+                            input3.value = "";
+                            let p28 = document.createElement("p")
+                            information.appendChild(p28);
+                            p28.innerText = "Chances are over!"
+                            p28.style.fontSize = "18px";
+                            let p31 = document.createElement("p")
+                            information.appendChild(p31);
+                            p31.innerText = `The number was ${a}`
+                            p31.style.fontSize = "18px";
+                        }
+
+                        else if (a - input3.value == 3 || a - input3.value == 2 || a - input3.value == 1 || input3.value - a == 3 || input3.value - a == 2 || input3.value - a == 1) {
+                            info1.innerText = "You are CLOSE";
+                            input3.value = "";
+                            let p22 = document.createElement("p")
+                            information.appendChild(p22);
+                            p22.innerText = "You are CLOSE!"
+                            p22.style.fontSize = "18px";
+                        }
+
+                        else if (input3.value < a && input3.value > 0) {
+                            info1.innerText = "Enter a BIGGER number!"
+                            input3.value = "";
+                            let p29 = document.createElement("p")
+                            information.appendChild(p29);
+                            p29.innerText = "Enter a BIGGER number!"
+                            p29.style.fontSize = "18px";
+                        }
+                        else if (input3.value > a) {
+                            info1.innerText = "Enter a SMALLER number!"
+                            input3.value = "";
+                            let p30 = document.createElement("p")
+                            information.appendChild(p30);
+                            p30.innerText = "Enter a SMALLER number!"
+                            p30.style.fontSize = "18px";
+                        }
                     }
                 }
-            }
-            else if (cpu1 == 5) {
-                while (d != f && input != a) {
+            })
+        }
+        function cpu15func(cpu1, input2, win) {
+            // Removing input2 
+            input2.style.display = "none";
+            // Creating new input for number 
+            let input3 = document.createElement("input");
+            inputdiv.appendChild(input3);
+            input3.focus();
+            entersent.innerText = "Enter a no. between 0 to 100:"
+            input3.addEventListener("keypress", (event) => {
+                if (event.keyCode === 13) {
                     d = d - 1;
                     score = score - 1
-                    input = prompt('Enter a number between 0 and 100: ');
-                    console.log(` You have entered ${input}`);
-                    if (input == a) {
-                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
-                        console.log(`Your score is ${100 - (100 - score)}`)
-                        console.log("Hurray! You have won 2 RUPEES")
-                    }
-                    else if (d == 0) {
-                        console.log("Oops! Your chances are now over");
-                        console.log("You LOSE!");
-                        console.log(`The number was ${a}`)
-                    }
+                    event.preventDefault();
+                    if (input3.value >= 0) {
+                        let p20 = document.createElement("p")
+                        information.appendChild(p20);
+                        p20.style.fontSize = "18px";
+                        p20.innerText = `${input3.value}`
 
-                    else if (a - input == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 2) {
-                        console.log("You are CLOSE");
-                    }
-                    else if (a - input == 1) {
-                        console.log("You are CLOSE")
-                    }
 
-                    else if (input - a == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 1) {
-                        console.log("You are CLOSE")
-                    }
+                        if (input3.value == a) {
+                            info1.innerText = "Congratulations!";
+                            input3.style.display = "none"
+                            let p21 = document.createElement("p")
+                            information.appendChild(p21);
+                            p21.innerText = "Congratulations!"
+                            p21.style.fontSize = "18px";
+                            info2.innerText = `You have won ${win} rupees`
 
-                    else if (input < a) {
-                        console.log("Enter a BIGGER number!")
-                    }
-                    else if (input > a) {
-                        console.log("Enter a SMALLER number!")
-                    }
-                    else {
-                        console.log("Enter number between 1 to 100")
+                        }
+                        else if (d == 0) {
+                            info1.innerText = "Chances are over!"
+                            input3.style.display = "none"
+                            input3.value = "";
+                            let p28 = document.createElement("p")
+                            information.appendChild(p28);
+                            p28.innerText = "Chances are over!"
+                            p28.style.fontSize = "18px";
+                            let p31 = document.createElement("p")
+                            information.appendChild(p31);
+                            p31.innerText = `The number was ${a}`
+                            p31.style.fontSize = "18px";
+                        }
+                        else if (a - input3.value == 3 || a - input3.value == 2 || a - input3.value == 1 || input3.value - a == 3 || input3.value - a == 2 || input3.value - a == 1) {
+                            info1.innerText = "You are CLOSE";
+                            input3.value = "";
+                            let p22 = document.createElement("p")
+                            information.appendChild(p22);
+                            p22.innerText = "You are CLOSE!"
+                            p22.style.fontSize = "18px";
+                        }
+
+                        else if (input3.value < a && input3.value > 0) {
+                            info1.innerText = "Enter a BIGGER number!"
+                            input3.value = "";
+                            let p29 = document.createElement("p")
+                            information.appendChild(p29);
+                            p29.innerText = "Enter a BIGGER number!"
+                            p29.style.fontSize = "18px";
+                        }
+                        else if (input3.value > a) {
+                            info1.innerText = "Enter a SMALLER number!"
+                            input3.value = "";
+                            let p30 = document.createElement("p")
+                            information.appendChild(p30);
+                            p30.innerText = "Enter a SMALLER number!"
+                            p30.style.fontSize = "18px";
+                        }
                     }
                 }
-            }
-            else {
-                while (e != f && input != a) {
+            })
+        }
+        function cpu16func(cpu1, input2, win) {
+            // Removing input2 
+            input2.style.display = "none";
+            // Creating new input for number 
+            let input3 = document.createElement("input");
+            inputdiv.appendChild(input3);
+            input3.focus();
+            entersent.innerText = "Enter a no. between 0 to 100:"
+            input3.addEventListener("keypress", (event) => {
+                if (event.keyCode === 13) {
                     e = e - 1;
                     score = score - 1
-                    input = prompt('Enter a number between 0 and 100: ');
-                    console.log(` You have entered ${input}`);
-                    if (input == a) {
-                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
-                        console.log(`Your score is ${100 - (100 - score)}`)
-                        console.log("Hurray! You have won 2 RUPEES")
-                    }
-                    else if (e == 0) {
-                        console.log("Oops! Your chances are now over");
-                        console.log("You LOSE!");
-                        console.log(`The number was ${a}`)
-                    }
+                    event.preventDefault();
+                    if (input3.value >= 0) {
+                        let p20 = document.createElement("p")
+                        information.appendChild(p20);
+                        p20.style.fontSize = "18px";
+                        p20.innerText = `${input3.value}`
 
-                    else if (a - input == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 1) {
-                        console.log("You are CLOSE")
-                    }
 
-                    else if (input - a == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 1) {
-                        console.log("You are CLOSE")
-                    }
+                        if (input3.value == a) {
+                            info1.innerText = "Congratulations!";
+                            
+                            input3.style.display = "none"
+                            let p21 = document.createElement("p")
+                            information.appendChild(p21);
+                            p21.innerText = "Congratulations!"
+                            p21.style.fontSize = "18px";
+                            info2.innerText = `You have won ${win} rupees`
 
-                    else if (input < a) {
-                        console.log("Enter a BIGGER number!")
-                    }
-                    else if (input > a) {
-                        console.log("Enter a SMALLER number!");
-                    }
-                    else {
-                        console.log("Enter number between 1 to 100");
+                        }
+                        else if (e == 0) {
+                            info1.innerText = "Chances are over!"
+                            input3.style.display = "none"
+                            input3.value = "";
+                            let p28 = document.createElement("p")
+                            information.appendChild(p28);
+                            p28.innerText = "Chances are over!"
+                            p28.style.fontSize = "18px";
+                            let p31 = document.createElement("p")
+                            information.appendChild(p31);
+                            p31.innerText = `The number was ${a}`
+                            p31.style.fontSize = "18px";
+                        }
+                        else if (a - input3.value == 3 || a - input3.value == 2 || a - input3.value == 1 || input3.value - a == 3 || input3.value - a == 2 || input3.value - a == 1) {
+                            info1.innerText = "You are CLOSE";
+                            input3.value = "";
+                            let p22 = document.createElement("p")
+                            information.appendChild(p22);
+                            p22.innerText = "You are CLOSE!"
+                            p22.style.fontSize = "18px";
+                        }
+
+                        else if (input3.value < a && input3.value > 0) {
+                            info1.innerText = "Enter a BIGGER number!"
+                            input3.value = "";
+                            let p29 = document.createElement("p")
+                            information.appendChild(p29);
+                            p29.innerText = "Enter a BIGGER number!"
+                            p29.style.fontSize = "18px";
+                        }
+                        else if (input3.value > a) {
+                            info1.innerText = "Enter a SMALLER number!"
+                            input3.value = "";
+                            let p30 = document.createElement("p")
+                            information.appendChild(p30);
+                            p30.innerText = "Enter a SMALLER number!"
+                            p30.style.fontSize = "18px";
+                        }
                     }
                 }
-            }
+            })
         }
-
-
-
-
-
-        function logicforfive(d, f, input, a, score, win) {
-            console.log(`Game ID = #${id}`);
-            console.log(`You have got ${cpu1} chances`);
-
-            while (d != f && input != a) {
-                d = d - 1;
-                score = score - 1
-                input = prompt('Enter a number between 0 and 100: ');
-                console.log(` You have entered ${input}`);
-                if (input == a) {
-                    console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
-                    console.log(`Your score is ${100 - (100 - score)}`)
-                    console.log("Hurray! You have won 2 RUPEES")
-                }
-                else if (d == 0) {
-                    console.log("Oops! Your chances are now over");
-                    console.log("You LOSE!");
-                    console.log(`The number was ${a}`)
-                }
-
-                else if (a - input == 3) {
-                    console.log("You are CLOSE")
-                }
-                else if (a - input == 2) {
-                    console.log("You are CLOSE");
-                }
-                else if (a - input == 1) {
-                    console.log("You are CLOSE")
-                }
-
-                else if (input - a == 3) {
-                    console.log("You are CLOSE")
-                }
-                else if (input - a == 2) {
-                    console.log("You are CLOSE")
-                }
-                else if (input - a == 1) {
-                    console.log("You are CLOSE")
-                }
-
-                else if (input < a) {
-                    console.log("Enter a BIGGER number!")
-                }
-                else if (input > a) {
-                    console.log("Enter a SMALLER number!")
-                }
-                else {
-                    console.log("Enter number between 1 to 100")
-                }
+        // let input2 = document.querySelector(".input2")
+        function logic(input2, win, cpu1) {
+            // If cpu (chances) is 4 
+            let p100 = document.createElement("p");
+            extrainfo.appendChild(p100);
+            p100.innerText = `Game ID = #${id}`;
+            let p101 = document.createElement("p");
+            extrainfo.appendChild(p101);
+            p101.innerText = `You have got ${cpu1} chances`;
+            if (cpu1 == 4) {
+                return cpu14func(cpu1, input2, win)
             }
-
-        }
-
-
-
-        function logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, win) {
-            console.log(`Game ID = #${id}`);
-            console.log(`You have got ${cpu3} chances`);
-
-            if (cpu3 == 4) {
-                while (c != f && input != a) {
-                    c = c - 1;
-                    score = score - 1
-                    input = prompt('Enter a number between 0 and 100: ');
-                    console.log(` You have entered ${input}`);
-                    if (input == a) {
-                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`);
-                        console.log(`Your score is ${100 - (100 - score)}`);
-                        console.log(`Hurray! You have won ${win} RUPEES`);
-                    }
-                    else if (c == 0) {
-                        console.log("Oops! Your chances are now over");
-                        console.log("You LOSE!");
-                        console.log(`The number was ${a}`)
-                    }
-                    else if (a - input == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 1) {
-                        console.log("You are CLOSE")
-                    }
-
-                    else if (input - a == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 1) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input < a) {
-                        console.log("Enter a BIGGER number!")
-                    }
-                    else if (input > a) {
-                        console.log("Enter a SMALLER number!")
-                    }
-
-                    else {
-                        console.log("Enter number between 1 to 100")
-                    }
-                }
+            else if (cpu1 == 5) {
+                return cpu15func(cpu1, input2, win)
+            }
+            else if (cpu1 == 6) {
+                return cpu16func(cpu1, input2, win)
             }
             else {
-                while (d != f && input != a) {
-                    d = d - 1;
-                    score = score - 1
-                    input = prompt('Enter a number between 0 and 100: ');
-                    console.log(` You have entered ${input}`);
-                    if (input == a) {
-                        console.log(`Congratulations! You have enter the correct number in ${100 - score} chances.`)
-                        console.log(`Your score is ${100 - (100 - score)}`)
-                        console.log("Hurray! You have won 2 RUPEES")
-                    }
-                    else if (d == 0) {
-                        console.log("Oops! Your chances are now over");
-                        console.log("You LOSE!");
-                        console.log(`The number was ${a}`)
-                    }
+                new console.error("Invalid cpu1");
+            }
 
-                    else if (a - input == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (a - input == 2) {
-                        console.log("You are CLOSE");
-                    }
-                    else if (a - input == 1) {
-                        console.log("You are CLOSE")
-                    }
+        }
+        input1.addEventListener("keypress", (event) => {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                if (input1.value == 9) {
+                    input1.style.display = "none";
+                    entersent.innerText = "Enter the amount:"
+                    let input2 = document.createElement("input");
+                    inputdiv.appendChild(input2);
+                    input2.setAttribute("class", "input2")
+                    input2.focus();
 
-                    else if (input - a == 3) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 2) {
-                        console.log("You are CLOSE")
-                    }
-                    else if (input - a == 1) {
-                        console.log("You are CLOSE")
-                    }
+                    input2.addEventListener("keypress", (event) => {
+                        if (event.keyCode === 13) {
+                            event.preventDefault();
+                            if (input2.value == 1) {
+                                logic(input2, 2, cpu1);
+                            }
+                            else if (input2.value == 2) {
+                                logic(input2, 3, cpu1)
+                            }
+                            else if (input2.value == 3) {
+                                logic(input2, 4, cpu1)
+                            }
+                            else if (input2.value == 4) {
+                                logic(input2, 6, cpu5)
+                            }
+                            else if (input2.value == 5) {
+                                logic(input2, 8, cpu3)
+                            }
+                            else if (input2.value == 6) {
+                                logic(input2, 1, cpu3)
+                            }
+                            else if (input2.value == 7) {
+                                logic(input2, 1, cpu3)
+                            }
+                            else if (input2.value == 8) {
+                                logic(input2, 1, cpu3)
+                            }
+                            else if (input2.value == 9) {
+                                logic(input2, 1, cpu3)
+                            }
+                            else if (input2.value == 10) {
+                                logic(input2, 17, cpu3)
+                            }
+                            else {
+                                let p51 = document.createElement("p")
+                                information.appendChild(p51);
+                                p51.innerText = "Invalid Amount!"
+                            }
 
-                    else if (input < a) {
-                        console.log("Enter a BIGGER number!")
-                    }
-                    else if (input > a) {
-                        console.log("Enter a SMALLER number!")
-                    }
-                    else {
-                        console.log("Enter number between 1 to 100")
-                    }
+                        }
+                    })
+                }
+                else {
+                    let p50 = document.createElement("p")
+                    information.appendChild(p50);
+                    p50.innerText = "Incorrect Password! Try Again.."
                 }
             }
-
-
-        }
-
-
-
-        if (z == 9) {
-            console.log("THE GAME HAS STARTED! GOOD LUCK😊\n\n");
-            b = prompt("Enter amount(1, 2, 3, 4, 5, 6, 7, 8, 9 or 10) to play!");
-            //If amount = 1 then this statement---
-            if (b == 1) {
-                logicforonetwo(cpu1, c, d, e, f, input, a, score, 2)
-            }
-            if (b == 2) {
-                logicforonetwo(cpu1, c, d, e, f, input, a, score, 3)
-            }
-            if (b == 3) {
-                logicforonetwo(cpu1, c, d, e, f, input, a, score, 4)
-            }
-            if (b == 4) {
-                logicforonetwo(d, f, input, a, score, 6)
-            }
-            if (b == 5) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 8)
-            }
-            if (b == 6) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 10)
-            }
-            if (b == 7) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 11)
-            }
-            if (b == 8) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 12)
-            }
-            if (b == 9) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 14)
-            }
-            if (b == 10) {
-                logicforfivesixsevenetc(cpu3, c, d, f, input, a, score, 17)
-            }
-
-        }
-
-    }
-
+        })
+    
 </script>
 
 </html>
