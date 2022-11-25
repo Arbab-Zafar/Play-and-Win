@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Roboto';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* Styling Nav and header */
+        nav {
+            background-color: rgb(165, 16, 165);
+            color: white;
+            height: 40px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 3px 30px 3px 0px;
+        }
+
+        #log {
+            position: relative;
+            left: 666px;
+        }
+
+        #sign {
+            position: relative;
+            left: 685px;
+        }
+
+        #game {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+            text-decoration: underline;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling main */
+        .button {
+            display: inline-block;
+            position: relative;
+            left: 613px;
+            top: 28px;
+        }
+
+        .btn {
+            padding: 8px 22px;
+            background: linear-gradient(rgb(226, 84, 226), rgb(92, 231, 92), rgb(237, 237, 72), rgb(241, 85, 85), rgb(78, 78, 235));
+            border: 2px solid grey;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            padding: 9px 23px;
+            font-size: 15px;
+        }
+
+        .gamearea {
+            width: 69vw;
+            height: 100%;
+            display: flex;
+            position: relative;
+            top: 60px;
+        }
+
+        .right-side-area {
+            width: 29vw;
+            height: 100%;
+            display: flex;
+            position: relative;
+            top: -44px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <a href="index.html">
+                    <li id="logo">Guess and Win</li>
+                </a>
+                <a href="game.html">
+                    <li id="game">Game</li>
+                </a>
+                <li id="log">Log-In</li>
+                <li id="sign">Sign-Up</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="maincontainer">
+            <div class="button">
+                <button class="btn">PLAY</button>
+            </div>
+            <div class="gamearea">
+                <div>
+                    <p id="p">The game will generate a RANDOM NUMBER.You have to GUESS the number in the given CHANCES
+                        given
+                        according to the AMOUNT paid.If you GUESS the NUMBER in the given CHANCES then you will WIN and
+                        the
+                        WINNING AMOUNT will be GIVEN to YOU.If "YOU ARE CLOSE" displays then the the RANDOM NUMBER is
+                        within
+                        the RANGE of 3. </p>
+                </div>
+                <p id="p1"></p>
+                <p id="p2"></p>
+                <p id="p3"></p>
+                <p id="p4"></p>
+                <p id="p5"></p>
+                <p id="p6"></p>
+                <p id="p7"></p>
+                <p id="p8"></p>
+                <p id="p9"></p>
+                <p id="p10"></p>
+                <p id="p11"></p>
+                <p id="p12"></p>
+                <p id="p13"></p>
+                <p id="p14"></p>
+                <p id="p15"></p>
+            </div>
+            <div class="right-side-area">
+                <p id="p_1">Press CTRL + SHIFT + I</p>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let btn = document.querySelector(".btn");
+    btn.onclick = function () {
+        // Adding game 
+        let a = Math.random() * 100
+        a = Number.parseInt(a);
+        let input;
+        input = Number.parseInt(input);
+        let c = 4;
+        let d = 5;
+        let e = 6;
+        let f = 0;
+        let z = 9;
+        let id = 0;
+        let cpu = Math.floor(Math.random() * 3);
+        let cpu1 = ["6", "5", "4"][cpu];
+        let cpu2 = Math.floor(Math.random() * 2);
+        let cpu3 = ["5", "4"][cpu2];
+        let score = 100;
+
+        // Adding webpage elements 
+        let nav = document.querySelector(".nav");
+        let ul = document.querySelector(".ul");
+        let maincontainer = document.querySelector(".maincontainer");
+        let button = document.querySelector(".button");
+        let gamearea = document.querySelector(".gamearea");
+        let rsa = document.querySelector(".right-side-area");
+        let p = document.querySelector("#p");
+        let p1 = document.querySelector("#p1");
+        let p2 = document.querySelector("#p2");
+        let p3 = document.querySelector("#p3");
+        let p4 = document.querySelector("#p4");
+        let p5 = document.querySelector("#p5");
+        let p6 = document.querySelector("#p6");
+        let p7 = document.querySelector("#p7");
+        let p8 = document.querySelector("#p8");
+        let p9 = document.querySelector("#p9");
+        let p10 = document.querySelector("#p10");
+        let p11 = document.querySelector("#p11");
+        let p12 = document.querySelector("#p12");
+        let p13 = document.querySelector("#p13");
+        let p14 = document.querySelector("#p14");
+        let p15 = document.querySelector("#p15");
+
+        let p_1 = document.querySelector("#p_1");
+        p.innerText = "The game has Started";
+        p.style.fontSize = "25px";
+        p.style.marginLeft = "23vw";
+        const inp = document.createElement("input");
+        const div = document.createElement("div");
+        inp.setAttribute("type", "number")
+        inp.setAttribute("id", "pass")
+        let pass = document.querySelector("#pass")
+        inp.focus()
+        inp.setAttribute("placeholder", "Enter the password:")
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.justifyContent = "center";
+        div.style.position = "relative";
+        div.style.top = "67px";
+        div.style.right = "284px";
+        inp.style.width = "288px";
+        inp.style.height = "33px";
+        gamearea.appendChild(div);
+        div.appendChild(inp);
+        console.log("Hi");
+        console.log(a);
+
+
+
+
+        function focus() {
+            let inp1 = document.querySelector("#gg")
+            inp1.focus()
+        }
+        // mckdhggdghgdhg
+        function hello(inp2) {
+            if (inp2 == a) {
+                p_1.innerText = `Congratulations! You have enter the correct number in ${100 - score} chances.`;
+                const p_2 = document.createElement("p");
+                rsa.appendChild(p_2)
+                const p_3 = document.createElement("p");
+                rsa.appendChild(p_3)
+                p_2.innerText = `Your score is ${100 - (100 - score)}.`;
+                p_3.innerText = `Hurray! You have won 2 RUPEES.`;
+            }
+            else if (a - inp2 == 3) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (a - inp2 == 2) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (a - inp2 == 1) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (inp2 - a == 3) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (inp2 - a == 2) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (inp2 - a == 1) {
+                const p_5 = document.createElement("p");
+                p_5.innerText = "You are close";
+                rsa.appendChild(p_5);
+            }
+            else if (inp2 > a) {
+                const p_6 = document.createElement("p");
+                p_6.innerText = "You are close";
+                rsa.appendChild(p_6);
+            }
+            else if (inp2 < a) {
+                const p_6 = document.createElement("p");
+                p_6.innerText = "You are close";
+                rsa.appendChild(p_6);
+            }
+
+
+        }
+
+
+
+
+        // Adding this in the place of while loop as it is causing problem!
+        function loopexception(cpu1, cpu3) {
+            if (cpu1 == 4) {
+                let inp2 = document.querySelector("#nobw")
+                if (inp2.value > 101) {
+                    const inp2 = document.createElement("input");
+                    inp2.setAttribute("type", "number");
+                    inp2.setAttribute("class", "nobw");
+                    inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                    div.appendChild(inp2)
+                    div.style.display = "flex";
+                    div.style.alignItems = "center";
+                    div.style.justifyContent = "center";
+                    div.style.position = "relative";
+                    div.style.top = "67px";
+                    div.style.right = "284px";
+                    inp2.style.width = "350px";
+                    inp2.style.height = "33px";
+                    inp2.focus()
+                    hello(inp2)
+                    inp2.addEventListener("keypress", (event) => {
+                        if (event.keyCode === 13) { // key code of the keybord key
+                            event.preventDefault();
+                        }
+                    });
+                }
+            }
+            else if (cpu1 == 5) {
+                const inp2 = document.createElement("input");
+                inp2.setAttribute("type", "number");
+                inp2.setAttribute("class", "nobw");
+                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                div.appendChild(inp2)
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.justifyContent = "center";
+                div.style.position = "relative";
+                div.style.top = "67px";
+                div.style.right = "284px";
+                inp2.style.width = "350px";
+                inp2.style.height = "33px";
+                inp2.focus()
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+            }
+            else if (cpu1 == 6) {
+                const inp2 = document.createElement("input");
+                inp2.setAttribute("type", "number");
+                inp2.setAttribute("class", "nobw");
+                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                div.appendChild(inp2)
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.justifyContent = "center";
+                div.style.position = "relative";
+                div.style.top = "67px";
+                div.style.right = "284px";
+                inp2.style.width = "350px";
+                inp2.style.height = "33px";
+                inp2.focus()
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+            }
+            else if (cpu3 == 5) {
+                const inp2 = document.createElement("input");
+                inp2.setAttribute("type", "number");
+                inp2.setAttribute("class", "nobw");
+                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                div.appendChild(inp2)
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.justifyContent = "center";
+                div.style.position = "relative";
+                div.style.top = "67px";
+                div.style.right = "284px";
+                inp2.style.width = "350px";
+                inp2.style.height = "33px";
+                inp2.focus()
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+            }
+            else if (cpu3 == 4) {
+                const inp2 = document.createElement("input");
+                inp2.setAttribute("type", "number");
+                inp2.setAttribute("class", "nobw");
+                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                div.appendChild(inp2)
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.justifyContent = "center";
+                div.style.position = "relative";
+                div.style.top = "67px";
+                div.style.right = "284px";
+                inp2.style.width = "350px";
+                inp2.style.height = "33px";
+                inp2.focus()
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Adding LOGIC
+
+        function mainlogic(cpu1) {
+            let inp1 = document.createElement("input");
+            inp1.setAttribute("type", "number");
+            inp1.setAttribute("id", "gg");
+            inp1.setAttribute("placeholder", "Enter the amount(1, 2, 3, 4, 5, 6, 7, 8, 9 or 10) to play!:");
+            div.style.display = "flex";
+            div.style.alignItems = "center";
+            div.style.justifyContent = "center";
+            div.style.position = "relative";
+            div.style.top = "67px";
+            div.style.right = "284px";
+            inp1.style.width = "350px";
+            inp1.style.height = "33px";
+            div.appendChild(inp1);
+
+            inp1.addEventListener("keypress", (event) => {
+                if (event.keyCode === 13) { // key code of the keybord key
+                    event.preventDefault();
+                    if (inp1.value == 1) {
+                        inp1.style.display = "none";
+                        p_1.innerText = `You have got ${cpu1} chances`
+                        if (cpu1 == 4) {
+                            while (c != f && input != a) {
+                                c = c - 1;
+                                score = score - 1;
+                                const inp2 = document.createElement("input");
+                                inp2.setAttribute("type", "number");
+                                inp2.setAttribute("class", "nobw");
+                                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                                div.appendChild(inp2)
+                                div.style.display = "flex";
+                                div.style.alignItems = "center";
+                                div.style.justifyContent = "center";
+                                div.style.position = "relative";
+                                div.style.top = "67px";
+                                div.style.right = "284px";
+                                inp2.style.width = "350px";
+                                inp2.style.height = "33px";
+                                inp2.focus()
+                                inp2.addEventListener("keypress", (event) => {
+                                    if (event.keyCode === 13) { // key code of the keybord key
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                if (inp2.value == a) {
+
+                                    p_1.innerText = `Congratulations! You have enter the correct number in ${100 - score} chances.`;
+                                    const p_2 = document.createElement("p");
+                                    rsa.appendChild(p_2)
+                                    const p_3 = document.createElement("p");
+                                    rsa.appendChild(p_3)
+                                    p_2.innerText = `Your score is ${100 - (100 - score)}.`;
+                                    p_3.innerText = `Hurray! You have won 2 RUPEES.`;
+                                }
+                            }
+                        }
+                        else if (cpu1 == 5) {
+                            while (d != f && input != a) {
+                                d = d - 1;
+                                score = score - 1
+                                const inp2 = document.createElement("input");
+                                inp2.setAttribute("type", "number");
+                                inp2.setAttribute("class", "nobw");
+                                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                                div.appendChild(inp2)
+                                div.style.display = "flex";
+                                div.style.alignItems = "center";
+                                div.style.justifyContent = "center";
+                                div.style.position = "relative";
+                                div.style.top = "67px";
+                                div.style.right = "284px";
+                                inp2.style.width = "350px";
+                                inp2.style.height = "33px";
+                                inp2.focus()
+                                inp2.addEventListener("keypress", (event) => {
+                                    if (event.keyCode === 13) { // key code of the keybord key
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                if (inp2.value == a) {
+
+                                    p_1.innerText = `Congratulations! You have enter the correct number in ${100 - score} chances.`;
+                                    const p_2 = document.createElement("p");
+                                    rsa.appendChild(p_2)
+                                    const p_3 = document.createElement("p");
+                                    rsa.appendChild(p_3)
+                                    p_2.innerText = `Your score is ${100 - (100 - score)}.`;
+                                    p_3.innerText = `Hurray! You have won 2 RUPEES.`;
+                                }
+                            }
+                        }
+                        else {
+                            while (e != f && input != a) {
+                                e = e - 1;
+                                score = score - 1
+                                const inp2 = document.createElement("input");
+                                inp2.setAttribute("type", "number");
+                                inp2.setAttribute("class", "nobw");
+                                inp2.setAttribute("placeholder", "Enter a number between 0 to 100:");
+                                div.appendChild(inp2)
+                                div.style.display = "flex";
+                                div.style.alignItems = "center";
+                                div.style.justifyContent = "center";
+                                div.style.position = "relative";
+                                div.style.top = "67px";
+                                div.style.right = "284px";
+                                inp2.style.width = "350px";
+                                inp2.style.height = "33px";
+                                inp2.focus()
+                                inp2.addEventListener("keypress", (event) => {
+                                    if (event.keyCode === 13) { // key code of the keybord key
+                                        event.preventDefault();
+                                        div.lastElementChild.focus()
+                                    }
+                                });
+
+                                if (inp2.value == a) {
+
+                                    p_1.innerText = `Congratulations! You have enter the correct number in ${100 - score} chances.`;
+                                    const p_2 = document.createElement("p");
+                                    rsa.appendChild(p_2)
+                                    const p_3 = document.createElement("p");
+                                    rsa.appendChild(p_3)
+                                    p_2.innerText = `Your score is ${100 - (100 - score)}.`;
+                                    p_3.innerText = `Hurray! You have won 2 RUPEES.`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+
+
+        function mainlogic1(cpu1) {
+            let inp1 = document.createElement("input");
+            inp1.setAttribute("type", "number");
+            inp1.setAttribute("id", "gg");
+            inp1.setAttribute("placeholder", "Enter the amount(1, 2, 3, 4, 5, 6, 7, 8, 9 or 10) to play!:");
+            div.style.display = "flex";
+            div.style.alignItems = "center";
+            div.style.justifyContent = "center";
+            div.style.position = "relative";
+            div.style.top = "67px";
+            div.style.right = "284px";
+            inp1.style.width = "350px";
+            inp1.style.height = "33px";
+            div.appendChild(inp1);
+
+            inp1.addEventListener("keypress", (event) => {
+                if (event.keyCode === 13) { // key code of the keybord key
+                    event.preventDefault();
+                    if (inp1.value == 1) {
+                        inp1.style.display = "none";
+                        p_1.innerText = `You have got ${cpu1} chances`
+                        if (cpu1 == 4) {
+                            loopexception(cpu1, cpu3);
+                        }
+                    }
+                }
+            });
+        }
+
+        function logic(cpu1, cpu3, input, c, d, e, score, inp2) {
+            if (cpu1 == 4) {
+                let inp2 = document.querySelector("#nobw")
+                loopexception(cpu1, cpu3)
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+
+                hello(inp2.value);
+            }
+
+            else if (cpu1 == 5) {
+                let inp2 = document.querySelector("#nobw")
+                loopexception(cpu1, cpu3)
+                inp2.addEventListener("keypress", (event) => {
+                    if (event.keyCode === 13) { // key code of the keybord key
+                        event.preventDefault();
+                    }
+                });
+
+                hello(inp2.value);
+            }
+
+        }
+
+
+        inp.addEventListener("keypress", (event) => {
+            if (event.keyCode === 13) { // key code of the keybord key
+                event.preventDefault();
+                if (inp.value == 9) {
+                    let inp2 = document.querySelectorAll("#nobw");
+                    inp.style.display = "none";
+                    p_1.innerText = "gfgryfytyfuyyytfueuiuysyudusuyuysiugsyf"
+                    logic(cpu1, cpu3, input, c, d, e, score, inp2.value)
+                }
+                // Adding enter event in inp 1
+
+
+
+
+                else {
+                    p_1.innerText = "Correct password";
+                    p_1.style.fontSize = "25px";
+                    p_1.style.textAlign = "center";
+                }
+
+
+            }
+        });
+
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play and Win - Sign-In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="/CSS/Signin.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <a href="index.html">
+                    <li id="logo">PLay and Win</li>
+                </a>
+                <a href="Guess and Win.html">
+                    <li class="game">Guess and Win</li>
+                </a>
+                <a href="Calculate and Win.html">
+                    <li class="game">Calculate and Win</li>
+                </a>
+                <a href="Unscramble and Win.html">
+                    <li class="game">Unscramble and Win</li>
+                </a>
+                <a href="Login.html">
+                    <li id="log">Log-In</li>
+                </a>
+                <a href="Signin.html">
+                    <li id="sign" style="text-decoration:underline ;">Sign-In</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 id="headingtwo">Sign-In</h2>
+        <div class="alert alert-success alert-dismissible fade show" id="success" role="alert">
+            <span id="span">sign-In <strong>succesfully!</strong></span>
+            <button type="button" class="but btn-close" data-bs-dismiss="alert" aria-label="Close"
+                style="top: -7px;"></button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" id="failure" role="alert">
+            <span id="span"><strong>Invalid</strong> email or password! Try again!</span>
+            <button type="button" class="but btn-close" data-bs-dismiss="alert" aria-label="Close"
+                style="top: -7px;"></button>
+        </div>
+        <div class="main">
+            <input type="email" placeholder="Enter username" id="user">
+        </div>
+        <div class="spandiv"><span id="userspan">Username is not <Strong>Available</Strong></span></div>
+        <div class="main">
+            <input type="email" placeholder="Enter your email address" id="email">
+        </div>
+        <div class="spandiv"><span id="emailspan">Email must be <Strong>Valid</Strong></span></div>
+        <div class="main2">
+            <input type="password" placeholder="Enter password" id="password">
+        </div>
+        <div class="spandiv"><span id="passwordspan">Password must be strong and contain atleast 8 letters!</span></div>
+        <div class="main3">
+            <input type="submit" id="submit">
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+        <script src="/JS/Signin.js"></script>
+</body>
+
+</html>
