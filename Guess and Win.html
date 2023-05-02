@@ -15,12 +15,13 @@
             font-family: 'Poppins', sans-serif, 'Roboto';
             margin: 0px;
             padding: 0px;
-            background-image: linear-gradient(rgba(208, 197, 197, 0.5), rgba(255, 253, 253, 0.5)), url(https://wallpaperaccess.com/full/187170.jpg);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(background.png);
             background-repeat: no-repeat;
             background-size: cover;
             opacity: 1;
             margin-top: 0px;
-            height: 565px;
+            /* height: 1280px;
+    width: 1390pxs; */
         }
 
         /* Styling Nav and header */
@@ -168,6 +169,7 @@
             top: -109px;
             left: 795px;
             display: inline-block;
+            cursor: pointer;
         }
 
         .showPoints {
@@ -177,6 +179,7 @@
             outline: none;
             border: 0.5px solid black;
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .hint {
@@ -257,6 +260,11 @@
             align-items: center;
             flex-wrap: wrap;
         }
+
+        .couponsDiv,
+        .couponsPremiumDiv {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -265,7 +273,9 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                    <li id="logo">Play and Win</li>
+                    <!-- <li id="logo">Play and Win</li>
+                     -->
+                    <img src="PlayAndWin Logo.png" alt="" width="300">
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game" id="gam">Guess and Win</li>
@@ -299,7 +309,7 @@
                 <p id="entersent">Enter the password:</p>
             </div>
             <div class="inputdiv">
-                <input type="number" class="input">
+                <input type="password" class="input">
             </div>
             <div class="infodiv">
                 <p id="info1"></p>
@@ -320,6 +330,7 @@
     </main>
     <footer>
         <div class="couponsDiv">Coupons</div>
+        <div class="couponsPremiumDiv">Coupons-Premium</div>
 
     </footer>
     <script>
@@ -339,8 +350,12 @@
         let znpo = localStorage.getItem("Zamannpoints");
         let ampo = localStorage.getItem("Ameerapoints");
         let orpo = localStorage.getItem("Otherspoints");
+        let hint = document.querySelector(".hint");
         let information = document.querySelector(".information");
         let couponsDiv = document.querySelector(".couponsDiv");
+        let couponsPremiumDiv = document.querySelector(".couponsPremiumDiv");
+        let a = Math.random() * 100
+        a = Number.parseInt(a);
         couponsDiv.addEventListener("click", function () {
             let html = `<div class="coupons">
                 <div>
@@ -364,35 +379,35 @@
             <span class="infoAboutCoupon">Get Free 1 rupees play</span>
             <div>
             <button class="redeemCoupon">Redeem Now</button>
-            <span class="pay">Pay : 05 points</span>
+            <span class="pay">Pay : 10 points</span>
             </div>
         </div><hr>
         <div class="couponItems">
             <span class="infoAboutCoupon">Get Free 2 rupees play</span>
             <div>
             <button class="redeemCoupon">Redeem Now</button>
-            <span class="pay">Pay : 10 points</span>
+            <span class="pay">Pay : 10 points and 1 rupee</span>
             </div>
         </div><hr>
         <div class="couponItems">
             <span class="infoAboutCoupon">Get Free 3 rupees play</span>
             <div>
             <button class="redeemCoupon">Redeem Now</button>
-            <span class="pay">Pay : 15 points</span>
+            <span class="pay">Pay : 20 points and 1 rupee</span>
             </div>
             </div><hr>
         <div class="couponItems">
             <span class="infoAboutCoupon">Get Free 4 rupees play</span>
             <div>
             <button class="redeemCoupon">Redeem Now</button>
-            <span class="pay">Pay : 20 points</span>
+            <span class="pay">Pay : 20 points and 2 rupee</span>
             </div>
         </div><hr>
         <div class="couponItems">
             <span class="infoAboutCoupon">Get Free 5 rupees play</span>
             <div>
                 <button class="redeemCoupon">Redeem Now</button>
-            <span class="pay">Pay : 25 points</span>
+            <span class="pay">Pay : 25 points and 3 rupee</span>
             </div><hr>
         </div>
     </div>`
@@ -406,7 +421,7 @@
             let close = document.querySelector("#close")
             let password = "#3108"
             //this is to close the coupon section
-            close.addEventListener('click',function(){
+            close.addEventListener('click', function () {
                 information.innerHTML = "";//simple
             })
             //adding click on every button
@@ -418,9 +433,200 @@
                     let actualPay = haveToPay.slice(6, 8);//getting actual no. like 10 or 5 or 25 by slicing
                     actualPay = parseInt(actualPay);
                     console.log(actualPay)
-                    // let p = prompt("enter no. according to name:")
                     console.log("Going on")
-                    //Custom radio (name who is reddeming coupon)
+                    //Custom radio (name who is redeeming coupon)
+                    if (radio11.checked) {
+                        let p = document.createElement("input");//creating input for entering password
+                        p.setAttribute("type", "password");
+                        p.setAttribute("id", "passwordDiv");
+                        p.setAttribute("placeholder", "Enter password to proceed:");
+                        couponsDiv.appendChild(p);//appending input
+                        let pp = document.querySelector("#passwordDiv");//its input
+                        pp.focus();
+                        let jj = setInterval(() => {
+                            if (pp.value == password) {
+                                let zamanpoints = localStorage.getItem("Zamannpoints");
+                                if (zamanpoints == null) {
+                                    localStorage.setItem("Zamannpoints", 0 - actualPay)
+                                }
+                                else {
+                                    localStorage.setItem("Zamannpoints", zamanpoints - actualPay)//subtaracting pay
+                                }
+                                console.log("Aaram karo")
+                                pp.style.display = "none";
+                                alert("Coupon Applied")
+                                clearInterval(jj)
+                            }
+                        }, 2000);
+
+                    }
+                    else if (radio22.checked) {
+                        let p = document.createElement("input");
+                        p.setAttribute("type", "password");
+                        p.setAttribute("id", "passwordDiv");
+                        couponsDiv.appendChild(p);
+                        let pp = document.querySelector("#passwordDiv");
+                        pp.focus();
+                        let jj = setInterval(() => {
+                            if (pp.value == password) {
+                                let zaidpoints = localStorage.getItem("Zaidpoints");
+                                if (zaidpoints == null) {
+                                    localStorage.setItem("Zaidpoints", 0 - actualPay)
+                                }
+                                else {
+                                    localStorage.setItem("Zaidpoints", zaidpoints - actualPay)
+                                }
+                                console.log("Aaram karo")
+                                pp.style.display = "none";
+                                alert("Coupon Applied")
+
+                                clearInterval(jj)
+                            }
+                        }, 2000);
+                    }
+                    else if (radio33.checked) {
+                        let p = document.createElement("input");
+                        p.setAttribute("type", "password");
+                        p.setAttribute("id", "passwordDiv");
+                        couponsDiv.appendChild(p);
+                        let pp = document.querySelector("#passwordDiv");
+                        pp.focus();
+                        let jj = setInterval(() => {
+                            if (pp.value == password) {
+                                let zeyanpoints = localStorage.getItem("Zeyanpoints");
+                                if (zeyanpoints == null) {
+                                    localStorage.setItem("Zeyanpoints", 0 - actualPay)
+                                }
+                                else {
+                                    localStorage.setItem("Zeyanpoints", zeyanpoints - actualPay)
+                                }
+                                console.log("Aaram karo")
+                                pp.style.display = "none";
+                                alert("Coupon Applied")
+
+                                clearInterval(jj)
+                            }
+                        }, 2000);
+
+                    }
+                    else if (radio44.checked) {
+                        let p = document.createElement("input");
+                        p.setAttribute("type", "password");
+                        p.setAttribute("id", "passwordDiv");
+                        couponsDiv.appendChild(p);
+                        let pp = document.querySelector("#passwordDiv");
+                        pp.focus();
+                        let jj = setInterval(() => {
+                            if (pp.value == password) {
+                                let ameerapoints = localStorage.getItem("Ameerapoints");
+                                if (ameerapoints == null) {
+                                    localStorage.setItem("Ameerapoints", 0 - actualPay)
+                                }
+                                localStorage.setItem("Ameerapoints", ameerapoints - actualPay)
+                                console.log("Aaram karo")
+                                pp.style.display = "none";
+                                alert("Coupon Applied")
+
+                                clearInterval(jj)
+                            }
+                        }, 2000);
+
+                    }
+                    else if (radio55.checked) {
+                        let p = document.createElement("input");
+                        p.setAttribute("type", "password");
+                        p.setAttribute("id", "passwordDiv");
+                        couponsDiv.appendChild(p);
+                        let pp = document.querySelector("#passwordDiv");
+                        pp.focus();
+                        let jj = setInterval(() => {
+                            if (pp.value == password) {
+                                let otherspoints = localStorage.getItem("Otherspoints");
+                                if (otherspoints == null) {
+                                    localStorage.setItem("Otherspoints", 0 - actualPay)
+                                }
+                                localStorage.setItem("Otherspoints", otherspoints - actualPay)
+                                console.log("Aaram karo")
+                                pp.style.display = "none";
+                                alert("Coupon Applied")
+
+                                clearInterval(jj)
+                            }
+                        }, 2000);
+                    }
+                    else {
+                        alert("First select who are you from above options!!!")
+                    }
+                })
+            });
+        })
+
+        couponsPremiumDiv.addEventListener("click", function () {
+            let html = `<div class="coupons">
+                <div>
+            <h3>Coupons-Premium</h3>
+            <img src="/Images/close img.png" alt="close" width="20" id="close">
+                </div>
+            <div id="names">
+            <input type="radio" id="radio11" name="name">Zamann
+            <label for="radio11"></label>
+
+            <input type="radio" id="radio22" name="name">Zaid
+            <label for="radio22"></label>
+            <input type="radio" id="radio33" name="name">Zeyan
+            <label for="radio33"></label>
+            <input type="radio" id="radio44" name="name">Ameera
+            <label for="radio44"></label>
+            <input type="radio" id="radio55" name="name">Others
+            <label for="radio55"></label>
+                </div>
+            <div class="couponItems">
+            <span class="infoAboutCoupon">Get 1 extra chance-If 6 chances, then not applied!</span>
+            <div>
+            <button class="redeemCoupon" id="firstButton">Redeem Now</button>
+            <span class="pay">Pay : 15 points and 1 rupee</span>
+            </div>
+            </div><hr>
+            <div class="couponItems">
+            <span class="infoAboutCoupon">Add rupees 2 to the winning amount</span>
+            <div>
+            <button class="redeemCoupon" id="secondButton">Redeem Now</button>
+            <span class="pay">Pay : 20 points and 1 rupee</span>
+            </div>
+            </div><hr>
+            <div class="couponItems">
+            <span class="infoAboutCoupon">Get hint at starting!</span>
+            <div>
+            <button class="redeemCoupon" id="thirdButton">Redeem Now</button>
+            <span class="pay">Pay : 10 points and 1 rupee</span>
+            </div>
+            </div><hr>
+            </div>
+            </div>`
+            information.innerHTML = html;//adding text to coupoon premium
+            let redeemCoupon = document.querySelectorAll(".redeemCoupon");
+            let radio11 = document.querySelector("#radio11");
+            let radio22 = document.querySelector("#radio22");
+            let radio33 = document.querySelector("#radio33");
+            let radio44 = document.querySelector("#radio44");
+            let radio55 = document.querySelector("#radio55");
+            let close = document.querySelector("#close")
+            let password = "#3108"
+            //this is to close the coupon section
+            close.addEventListener('click', function () {
+                information.innerHTML = "";//simple
+            })
+            //adding click on every button
+            Array.from(redeemCoupon).forEach(function (element, index) {
+                element.addEventListener('click', function () {
+                    alert("working")
+                    let haveToPay = redeemCoupon[index].nextElementSibling.innerHTML; //getting span (pay) innerHtml like Pay : 05 points
+                    console.log(haveToPay)
+                    let actualPay = haveToPay.slice(6, 8);//getting actual no. like 10 or 5 or 25 by slicing
+                    actualPay = parseInt(actualPay);
+                    console.log(actualPay)
+                    //Custom radio (name who is redeeming coupon)
+
                     if (radio11.checked) {
                         let zamanpoints = localStorage.getItem("Zamannpoints");
                         let p = document.createElement("input");//creating input for entering password
@@ -431,11 +637,15 @@
                         pp.focus();
                         let jj = setInterval(() => {
                             if (pp.value == password) {
+                                if (zamanpoints == null) {
+                                    localStorage.setItem("Zamannpoints", 0 - actualPay)
+                                }
+                                else{
                                 localStorage.setItem("Zamannpoints", zamanpoints - actualPay)//subtaracting pay
+                                }
                                 console.log("Aaram karo")
                                 pp.style.display = "none";
                                 alert("Coupon Applied")
-
                                 clearInterval(jj)
                             }
                         }, 2000);
@@ -451,7 +661,12 @@
                         pp.focus();
                         let jj = setInterval(() => {
                             if (pp.value == password) {
-                                localStorage.setItem("Zaidpoints", zaidpoints - actualPay)
+                                if (zaidpoints == null) {
+                                    localStorage.setItem("Zaidpoints", 0 - actualPay)
+                                }
+                                else{
+                                localStorage.setItem("Zaidpoints", zaidpoints - actualPay)//subtaracting pay
+                                }
                                 console.log("Aaram karo")
                                 pp.style.display = "none";
                                 alert("Coupon Applied")
@@ -470,7 +685,12 @@
                         pp.focus();
                         let jj = setInterval(() => {
                             if (pp.value == password) {
-                                localStorage.setItem("Zeyanpoints", zeyannpoints - actualPay)
+                                if (zeyanpoints == null) {
+                                    localStorage.setItem("Zeyanpoints", 0 - actualPay)
+                                }
+                                else{
+                                localStorage.setItem("Zeyanpoints", zeyanpoints - actualPay)//subtaracting pay
+                                }
                                 console.log("Aaram karo")
                                 pp.style.display = "none";
                                 alert("Coupon Applied")
@@ -490,7 +710,12 @@
                         pp.focus();
                         let jj = setInterval(() => {
                             if (pp.value == password) {
-                                localStorage.setItem("Ameerapoints", ameerapoints - actualPay)
+                                if (ameerapoints == null) {
+                                    localStorage.setItem("Ameerapoints", 0 - actualPay)
+                                }
+                                else{
+                                localStorage.setItem("Ameerapoints", ameerapoints - actualPay)//subtaracting pay
+                                }
                                 console.log("Aaram karo")
                                 pp.style.display = "none";
                                 alert("Coupon Applied")
@@ -501,7 +726,7 @@
 
                     }
                     else if (radio55.checked) {
-                        let zamanpoints = localStorage.getItem("Zamannpoints");
+                        let otherspoints = localStorage.getItem("Otherspoints");
                         let p = document.createElement("input");
                         p.setAttribute("type", "password");
                         p.setAttribute("id", "passwordDiv");
@@ -510,7 +735,12 @@
                         pp.focus();
                         let jj = setInterval(() => {
                             if (pp.value == password) {
-                                localStorage.setItem("Zamannpoints", zamanpoints - actualPay)
+                                if (otherspoints == null) {
+                                    localStorage.setItem("Otherspoints", 0 - actualPay)
+                                }
+                                else{
+                                localStorage.setItem("Otherspoints", otherspoints - actualPay)//subtaracting pay
+                                }
                                 console.log("Aaram karo")
                                 pp.style.display = "none";
                                 alert("Coupon Applied")
@@ -524,7 +754,55 @@
                     }
                 })
             });
+            let firstButton = document.querySelector("#firstButton");//first redeem button
+            let secondButton = document.querySelector("#secondButton");//second reddeeem button
+            let thirdButton = document.querySelector("#thirdButton");//third redeem button
+            //Complete it!!!!!!!!!______-----11111111111111!!!!!!!!!!!!!!!--1111111111!!!!!!!!!!!!_____
+            //Problem-
+            //For adding 1 extra chance i Can add 1 to cpu3 but in if-else statement it is written like if(cpu3=="4"||"5") so it will give error
+
+            //How to solve it--
+            // It can be solved by adding $(cpu3) everywhere
+
+            // firstButton.addEventListener("click",function(){//adding click to first coupon redeem button
+
+            // })
+            thirdButton.addEventListener("click", function () {
+                let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+                if (a % numbers[8] == 0) {
+                    wordd = `The number is divisible by ${numbers[8]}`
+                }
+                else if (a % numbers[7] == 0) {
+                    wordd = `The number is divisible by ${numbers[7]}`
+                }
+                else if (a % numbers[6] == 0) {
+                    wordd = `The number is divisible by ${numbers[6]}`
+                }
+                else if (a % numbers[5] == 0) {
+                    wordd = `The number is divisible by ${numbers[5]}`
+                }
+                else if (a % numbers[4] == 0) {
+                    wordd = `The number is divisible by ${numbers[4]}`
+                }
+                else if (a % numbers[3] == 0) {
+                    wordd = `The number is divisible by ${numbers[3]}`
+                }
+                else if (a % numbers[2] == 0) {
+                    wordd = `The number is divisible by ${numbers[2]}`
+                }
+                else if (a % numbers[1] == 0) {
+                    wordd = `The number is divisible by ${numbers[1]}`
+                }
+                else if (a % numbers[0] == 0) {
+                    wordd = `The number is divisible by ${numbers[0]}`
+                }
+                else {
+                    wordd = `The number is a prime number`
+                }
+                hint.innerHTML = wordd;
+            })
         })
+
 
         function zaidpointsincre(input2) {
             notobeadded = parseInt(input2)
@@ -716,8 +994,6 @@
         }, 2000);
 
         function maingame(personincre, persondecre) {
-            let a = Math.random() * 100
-            a = Number.parseInt(a);
             console.log(a)
             let input;
             input = Number.parseInt(input);
@@ -725,7 +1001,7 @@
             let d = 5;
             let e = 6;
             let f = 0;
-            let z = 9;
+            let z = 31082009;
             let id = Math.floor(Math.random() * 10000);
             // let cpu = Math.floor(Math.random() * 3);
             let cpu5 = 5;
@@ -736,7 +1012,6 @@
             let inputdiv = document.querySelector(".inputdiv");
             let infodiv = document.querySelector(".infodiv");
             let lifeline = document.querySelector(".lifeline");
-            let hint = document.querySelector(".hint");
             let input1 = document.querySelector(".input");
             let info1 = document.querySelector("#info1");
             let info2 = document.querySelector("#info2");
@@ -748,53 +1023,55 @@
             input1.focus();
             console.log(cpu1);
             //Lifeline 
+            let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+            if (a % numbers[8] == 0) {
+                wordd = `The number is divisible by ${numbers[8]}`
+                persondecre(4)
+            }
+            else if (a % numbers[7] == 0) {
+                wordd = `The number is divisible by ${numbers[7]}`
+                persondecre(4)
+            }
+            else if (a % numbers[6] == 0) {
+                wordd = `The number is divisible by ${numbers[6]}`
+                persondecre(4)
+            }
+            else if (a % numbers[5] == 0) {
+                wordd = `The number is divisible by ${numbers[5]}`
+                persondecre(4)
+            }
+            else if (a % numbers[4] == 0) {
+                wordd = `The number is divisible by ${numbers[4]}`
+                persondecre(4)
+            }
+            else if (a % numbers[3] == 0) {
+                wordd = `The number is divisible by ${numbers[3]}`
+                persondecre(4)
+            }
+            else if (a % numbers[2] == 0) {
+                wordd = `The number is divisible by ${numbers[2]}`
+                persondecre(4)
+            }
+            else if (a % numbers[1] == 0) {
+                wordd = `The number is divisible by ${numbers[1]}`
+                persondecre(4)
+            }
+            else if (a % numbers[0] == 0) {
+                wordd = `The number is divisible by ${numbers[0]}`
+                persondecre(4)
+            }
+            else {
+                wordd = `The number is a prime number`
+                persondecre(4)
+            }
             lifeline.addEventListener("click", function () {
                 lifeline.style.display = "none";
                 let conf = confirm("Are you sure to use the lifeline??")
                 if (conf) {
-                    let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    if (a % numbers[8] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[8]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[7] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[7]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[6] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[6]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[5] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[5]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[4] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[4]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[3] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[3]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[2] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[2]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[1] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[1]}`
-                        persondecre(4)
-                    }
-                    else if (a % numbers[0] == 0) {
-                        hint.innerText = `The number is divisible by ${numbers[0]}`
-                        persondecre(4)
-                    }
-                    else {
-                        hint.innerText = `The number is a prime number`
-                        persondecre(4)
-                    }
+                    hint.innerHTML = wordd
                 }
-            })
+            });
+
 
             let showpoints = document.querySelector(".showPoints")
             showpoints.addEventListener("click", function () {
@@ -1061,7 +1338,7 @@
             input1.addEventListener("keypress", (event) => {
                 if (event.keyCode === 13) {
                     event.preventDefault();
-                    if (input1.value == 9) {
+                    if (input1.value == z) {
                         input1.style.display = "none";
                         couponsDiv.style.display = "none";
                         information.innerHTML = "";

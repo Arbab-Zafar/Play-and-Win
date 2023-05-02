@@ -6,7 +6,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play and Win</title>
-    <link rel="stylesheet" href="/CSS/games(index).css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Roboto';
+            margin: 0px;
+            padding: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(background.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+            margin-top: 0px;
+            /* height: 1280px;
+    width: 1390pxs; */
+        }
+        
+        /* Styling Nav and header */
+        nav {
+            /* background-color: rgb(201, 103, 237); */
+            /* border-bottom: 1.5px solid rgb(21, 20, 20); */
+            box-shadow: 5px 4px 3px #2c2a2a;
+            ;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin-bottom: 0px;
+        }
+
+        nav ul li {
+            margin: 3px 30px 3px 0px;
+            color: rgb(0, 0, 0);
+        }
+
+        #log {
+            position: relative;
+            left: 166px;
+        }
+
+        #sign {
+            position: relative;
+            left: 186px;
+        }
+
+        .game {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling main */
+        h1 {
+            text-align: center;
+            color: red;
+            text-decoration: underline;
+            margin-bottom: 8vh;
+            margin-top: 0px;
+            padding-top: 22px;
+        }
+
+        h2 {
+            color: rgb(50, 50, 238);
+        }
+
+        h3 {
+            color: rgb(255 16 82);
+        }
+
+
+        p {
+            color: black;
+        }
+
+        u {
+            color: black;
+        }
+
+        #p {
+            margin-left: 20px;
+        }
+
+        #pa {
+            margin-left: 20px;
+        }
+
+        .first {
+            width: 32vw;
+            margin-right: 1vw;
+            margin-left: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: auto;
+        }
+
+        .second {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 650px;
+        }
+
+        .third {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 600px;
+        }
+
+        .maincontainer2 {
+            display: flex;
+        }
+
+        .footer {
+            position: relative;
+            left: 420px;
+            bottom: 300px;
+            width: 65vw;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #copyright {
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +158,9 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                    <li id="logo">PLay and Win</li>
+                    <!-- <li id="logo">PLay and Win</li> -->
+                    <!-- <img src="Logo.jpg" alt="" width="80"> -->
+                    <img src="PlayAndWin Logo.png" alt="" width="300">
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game">Guess and Win</li>
@@ -76,7 +222,7 @@
                     <h3>The time and winning amount:-</h3>
                     <p>
                         If you pass the first level and got out then you will win 1 rupee!<br><br>
-                        If you pass the second level and got out then you will win 7 rupees!<br><br>
+                        If you pass the second level and got out then you will win 5 rupees!<br><br>
                         If you pass all the three levels then you will win 10 rupees!
                     </p>
                 </div>
@@ -91,9 +237,9 @@
                     </p>
                     <h3>The time, chances and winning amount:-</h3>
                     <p>
-                        You will get 25 seconds to guess the word.<br><br>
+                        You will get 20 seconds to guess the word.<br><br>
                         You will 3 chances to guess the word!<br><br>
-                        If you win then you will get 8 rupees!<br><br>
+                        If you win then you will get 7 rupees!<br><br>
                     </p>
                 </div>
             </div>

@@ -8,7 +8,201 @@
     <title>Play and Win - Log-In</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/Login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans&family=Poppins:wght@300&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif, 'Roboto';
+            margin: 0px;
+            padding: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(background.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+            margin-top: 0px;
+            /* height: 1280px;
+    width: 1390pxs; */
+        }
+
+        /* Styling Nav and header */
+        nav {
+            /* background-color: rgb(201, 103, 237); */
+            /* border-bottom: 1.5px solid rgb(21, 20, 20); */
+            box-shadow: 5px 4px 3px #2c2a2a;
+            ;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin-bottom: 0px;
+        }
+
+        nav ul li {
+            margin: 3px 30px 3px 0px;
+            color: rgb(0, 0, 0);
+        }
+
+        #log {
+            position: relative;
+            left: 166px;
+        }
+
+        #sign {
+            position: relative;
+            left: 186px;
+        }
+
+        .game {
+            position: relative;
+            left: 20px;
+            font-size: 19px;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling main */
+        h2 {
+            text-align: center;
+            color: red;
+            text-decoration: underline;
+            margin-bottom: 10vh;
+            margin-top: 0px;
+            padding-top: 22px;
+        }
+
+        h3 {
+            color: rgb(255 16 82);
+        }
+
+
+        p {
+            color: black;
+        }
+
+        u {
+            color: black;
+        }
+
+        #p {
+            margin-left: 20px;
+        }
+
+        #pa {
+            margin-left: 20px;
+        }
+
+        .first {
+            width: 32vw;
+            margin-right: 1vw;
+            margin-left: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: auto;
+        }
+
+        .second {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 650px;
+        }
+
+        .third {
+            width: 32vw;
+            margin-right: 1vw;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            height: 600px;
+        }
+
+        .maincontainer2 {
+            display: flex;
+        }
+
+        .footer {
+            position: relative;
+            left: 420px;
+            bottom: 300px;
+            width: 65vw;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #copyright {
+            color: black;
+        }
+
+        .main,
+        .main2,
+        .main3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        #email,
+        #password,
+        #user {
+            width: 315px;
+            outline: none;
+            height: 35px;
+            border: 1px solid black;
+            padding: 5px 15px 5px 15px;
+            border-radius: 5px;
+        }
+
+        #submit {
+            padding: 3px 12px 3px 12px;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        #submit:hover {
+            padding: 6px 19px 4px 19px;
+            cursor: pointer;
+        }
+
+        .spandiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        #span {
+            position: absolute;
+            top: 7px;
+        }
+
+        #success {
+            display: none;
+            height: 40px;
+        }
+
+        #failure {
+            display: none;
+            height: 40px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +210,8 @@
         <nav class="nav">
             <ul class="ul">
                 <a href="index.html">
-                    <li id="logo">PLay and Win</li>
+                    <!-- <li id="logo">PLay and Win</li> -->
+                    <img src="PlayAndWin Logo.png" alt="" width="300">
                 </a>
                 <a href="Guess and Win.html">
                     <li class="game">Guess and Win</li>
@@ -63,7 +258,138 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-    <script src="/JS/Login.js"></script>
+    <script>
+        let user = document.querySelector("#user");
+        let email = document.querySelector("#email");
+        let password = document.querySelector("#password");
+        let submit = document.querySelector("#submit");
+        let emailspan = document.querySelector("#emailspan");
+        let passwordspan = document.querySelector("#passwordspan");
+        let userspan = document.querySelector("#userspan");
+        let success = document.querySelector("#success");
+        let failure = document.querySelector("#failure");
+        let headingtwo = document.querySelector("#headingtwo");
+        e = false;
+        p = false;
+        emailspan.style.display = "none";
+        passwordspan.style.display = "none";
+
+
+        email.addEventListener("blur", function () {
+            let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/
+            let str = email.value
+            if (email.value == "") {
+                email.style.border = "1.5px solid red";
+                e = false;
+            }
+            else {
+                if (regex.test(str)) {
+                    let userperson = localStorage.getItem("User");
+                    if (userperson == null) {
+                        userobj = []
+                    }
+                    else {
+                        userobj = JSON.parse(userperson);
+                    }
+                    userobj.forEach(function (element, index) {
+                        if (str == element.email) {
+                            console.log("OK")
+                            e = true;
+                            emailspan.style.display = "none";
+                            email.style.border = "1px solid black";
+                        }
+                        else {
+                            e = false;
+                            emailspan.style.display = "block";
+                            emailspan.innerHTML = "Account does not <strong>Exist</strong>"
+                            email.style.border = "1.5px solid red";
+                        }
+                    });
+                }
+                else {
+                    e = false;
+                    console.log("Error")
+                    emailspan.style.display = "block";
+                    email.style.border = "1.5px solid red";
+                }
+            }
+        })
+        email.addEventListener("click", function () {
+            emailspan.style.display = "none";
+        })
+
+
+        password.addEventListener("blur", function () {
+            let regex = /^([_\-\.0-9a-zA-Z#$]){8,20}$/
+            let str = password.value;
+            console.log(regex, str)
+            if (password.value == "") {
+                password.style.border = "1.5px solid red";
+                p = false;
+            }
+            else {
+                if (regex.test(str)) {
+                    let userperson = localStorage.getItem("User");
+                    if (userperson == null) {
+                        userobj = []
+                    }
+                    else {
+                        userobj = JSON.parse(userperson);
+                    }
+                    userobj.forEach(function (element, index) {
+                        if (str == element.password) {
+                            console.log("OK")
+                            p = true;
+                            passwordspan.style.display = "none";
+                            password.style.border = "1px solid black";
+                        }
+                        else {
+                            p = false;
+                            passwordspan.style.display = "block";
+                            passwordspan.innerHTML = "<strong>Wrong</strong> password"
+                            password.style.border = "1.5px solid red";
+                        }
+                    });
+                }
+                else {
+                    console.log("Error")
+                    p = false;
+                    passwordspan.style.display = "block"
+                    password.style.border = "1.5px solid red";
+                }
+            }
+        })
+
+        password.addEventListener("click", function () {
+            passwordspan.style.display = "none";
+        })
+
+        submit.addEventListener("click", function () {
+            if (e && p) {
+                email.value = ""
+                password.value = ""
+                failure.style.display = "none";
+                success.style.display = "block";
+                headingtwo.style.marginBottom = "4vh";
+                setTimeout(() => {
+                    success.style.display = "none";
+                    headingtwo.style.marginBottom = "10vh";
+                    let url = "index.html"
+                    window.open(url)
+                }, 2000);
+            }
+            else {
+                success.style.display = "none";
+                headingtwo.style.marginBottom = "4vh";
+                failure.style.display = "block";
+                setTimeout(() => {
+                    failure.style.display = "none";
+                    headingtwo.style.marginBottom = "10vh";
+                }, 2000);
+            }
+        })
+
+    </script>
 </body>
 
 </html>
